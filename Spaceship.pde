@@ -22,26 +22,7 @@ class Spaceship extends Floater
       myCenterY = height;
     }
   }
-  public void show() {
-    //translate the (x,y) center of the ship to the correct position
-    translate((float)myCenterX, (float)myCenterY);
-
-    //convert degrees to radians for rotate()
-    float dRadians = (float)(myPointDirection*(Math.PI/180));
-
-    //rotate so that the polygon will be drawn in the correct direction
-    rotate(dRadians);
-
-    for (int i = 0; i<xCorners.length-2; i++) {
-      fill(myColor);
-      triangle(xCorners[i] + (float)myXspeed, yCorners[i]+ (float)myYspeed,
-        xCorners[i+1]+ (float)myXspeed, yCorners[i+1]+ (float)myYspeed,
-        xCorners[i+2]+ (float)myXspeed, yCorners[i+2]+ (float)myYspeed);
-    }
-    //"unrotate" and "untranslate" in reverse order
-    rotate(-1*dRadians);
-    translate(-1*(float)myCenterX, -1*(float)myCenterY);
-  }
+  
   public void hyperSpace() {
     myXspeed = 0;
     myYspeed = 0;
