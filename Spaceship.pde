@@ -1,7 +1,7 @@
 class Spaceship extends Floater
 {
   public Spaceship() {
-    corners = 4;
+    corners = 3;
     xCorners = new int[]{-8, 16, -8};
     yCorners = new int[]{-8, 0, 8};
     myCenterX = 300;
@@ -29,5 +29,12 @@ class Spaceship extends Floater
     myPointDirection = (Math.random()*360);
     myCenterX = (Math.random()*width);
     myCenterY = (Math.random()*height);
+  }
+  
+  public double getCenterX(){
+    return myCenterX;
+  }
+  public double getCenterY(){
+    return myCenterY;
   }
 }
