@@ -32,13 +32,13 @@ public void draw()
 }
 
 public void keyPressed() {
-  if (key=='a') {
-    garvin.accelerate(2);
-  }
   if (key=='w') {
+    garvin.accelerate(1);
+  }
+  if (key=='d') {
     garvin.turn(5);
   }
-  if (key=='s') {
+  if (key=='a') {
     garvin.turn(-5);
   }
   if (key == 'h') {
