@@ -1,36 +1,47 @@
 Star[] shtar = new Star[200];
 Spaceship garvin;
-public void setup() 
+ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
+
+public void setup()
 {
   size(600, 600);
   for (int i = 0; i < shtar.length; i++) {
     shtar[i] = new Star();
   }
+  for (int q = 0; q<17; q++) {
+    rocks.add(new Asteroid());
+  }
   garvin = new Spaceship();
 }
-public void draw() 
+public void draw()
 {
   background(0);
   for (int i = 0; i < shtar.length; i++) {
     shtar[i].show();
   }
-  garvin.move();
+  for (int q = 0; q<rocks.size(); q++) {
+    rocks.get(q).show();
+    rocks.get(q).move();
+    double distance = dist((float)garvin.getCenterX(), (float)garvin.getCenterY(), (float)rocks.get(q).getCenterX(), (float)rocks.get(q).getCenterY());
+    if (distance <= 20) {
+      rocks.remove(q);
+    }
+  }
   garvin.show();
+  garvin.move();
 }
 
 public void keyPressed() {
   if (key=='a') {
-   garvin.accelerate(1.5);
+    garvin.accelerate(2);
   }
   if (key=='w') {
-   garvin.turn(7);
+    garvin.turn(5);
   }
-  if (key=='s'){
-    garvin.turn(-7);
+  if (key=='s') {
+    garvin.turn(-5);
   }
-  if (key=='h'){
+  if (key == 'h') {
     garvin.hyperSpace();
-    garvin.move();
-    garvin.show();
   }
 }
