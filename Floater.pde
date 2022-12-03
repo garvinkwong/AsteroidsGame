@@ -46,8 +46,7 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
   }   
   public void show ()  //Draws the floater at the current position  
   {             
-    fill(myColor);   
-    stroke(myColor);    
+    fill(myColor);     
 
     //translate the (x,y) center of the ship to the correct position
     translate((float)myCenterX, (float)myCenterY);
@@ -59,12 +58,12 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
     rotate(dRadians);
 
     //draw the polygon
-    for (int i = 0; i<xCorners.length-2; i++) {
-      fill(myColor);
-      triangle(xCorners[i] + (float)myXspeed, yCorners[i]+ (float)myYspeed,
-        xCorners[i+1]+ (float)myXspeed, yCorners[i+1]+ (float)myYspeed,
-        xCorners[i+2]+ (float)myXspeed, yCorners[i+2]+ (float)myYspeed);
+    beginShape();
+    for (int nI = 0; nI < corners; nI++)
+    {
+      vertex(xCorners[nI], yCorners[nI]);
     }
+    endShape(CLOSE);
 
     //"unrotate" and "untranslate" in reverse order
     rotate(-1*dRadians);
